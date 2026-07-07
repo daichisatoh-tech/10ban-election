@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CandidatePage } from "@/components/CandidatePage";
+import { candidateAHandle, candidateAPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "山田あおい候補 政策詳細",
@@ -67,6 +68,8 @@ export default function CandidateA() {
           a: "正直にお伝えします。50円の値下げを実現するために、メニュー構成の見直しは必要になります。しかし、これは「量より質」ではなく、「本当に求められているメニューに集中する」ということです。普段あまり注文されないメニューを整理し、人気メニューをしっかり残します。",
         },
       ]}
+      handle={candidateAHandle}
+      posts={candidateAPosts}
     />
   );
 }

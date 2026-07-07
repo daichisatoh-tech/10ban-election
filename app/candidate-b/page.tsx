@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { CandidatePage } from "@/components/CandidatePage";
+import { candidateBHandle, candidateBPosts } from "@/lib/posts";
 
 export const metadata: Metadata = {
   title: "鈴木りょう候補 政策詳細",
@@ -66,6 +67,8 @@ export default function CandidateB() {
           a: "「全員に薄く広く」と「困っている人に届ける」、どちらが正しいかは一概に言えません。でも考えてみてください。バリアフリーのスロープは車椅子の人しか使いません。それでも必要ですよね。本当に困っている人に手を差し伸べることは、不公平ではなく「公正」です。",
         },
       ]}
+      handle={candidateBHandle}
+      posts={candidateBPosts}
     />
   );
 }

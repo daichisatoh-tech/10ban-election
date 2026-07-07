@@ -2,6 +2,8 @@ import Link from "next/link";
 import { Avatar } from "./Avatar";
 import { CandidateHeader } from "./CandidateHeader";
 import { Footer } from "./Footer";
+import { SocialFeed } from "./SocialFeed";
+import type { Post } from "@/lib/posts";
 
 export type Profile = { label: string; text: string };
 
@@ -40,6 +42,8 @@ export function CandidatePage({
   profile,
   policies,
   qas,
+  handle,
+  posts,
 }: {
   color: "a" | "b";
   initial: string;
@@ -50,6 +54,8 @@ export function CandidatePage({
   profile: Profile[];
   policies: Policy[];
   qas: QA[];
+  handle: string;
+  posts: Post[];
 }) {
   const t = theme[color];
 
@@ -165,6 +171,14 @@ export function CandidatePage({
           </div>
         </div>
       </section>
+
+      <SocialFeed
+        color={color}
+        initial={initial}
+        name={name}
+        handle={handle}
+        posts={posts}
+      />
 
       <div className="pb-12 text-center">
         <Link

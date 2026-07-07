@@ -1,0 +1,130 @@
+import { Avatar } from "./Avatar";
+import type { Post } from "@/lib/posts";
+
+const theme = {
+  a: { avatarBg: "bg-a" },
+  b: { avatarBg: "bg-b" },
+} as const;
+
+function PostCard({
+  color,
+  initial,
+  name,
+  handle,
+  post,
+}: {
+  color: "a" | "b";
+  initial: string;
+  name: string;
+  handle: string;
+  post: Post;
+}) {
+  const t = theme[color];
+  const qt = post.quote ? theme[post.quote.color] : null;
+
+  return (
+    <article className="rounded-xl border border-gray-200 bg-white p-4">
+      <div className="flex items-start gap-3">
+        <Avatar
+          initial={initial}
+          className={`h-11 w-11 flex-shrink-0 text-base ${t.avatarBg}`}
+        />
+        <div className="min-w-0 flex-1">
+          <div className="flex flex-wrap items-baseline gap-x-1.5 text-sm">
+            <span className="font-bold">{name}</span>
+            <span className="text-gray-500">{handle}</span>
+            <span className="text-gray-400">·</span>
+            <span className="text-gray-500">{post.date}</span>
+          </div>
+
+          <p className="mt-1 whitespace-pre-line text-[15px] leading-relaxed text-gray-900">
+            {post.text}
+          </p>
+
+          {post.photo && (
+            <div
+              className={`mt-3 flex aspect-video flex-col items-center justify-center gap-2 rounded-xl border border-gray-100 bg-gradient-to-br text-4xl ${
+                color === "a" ? "from-a-light to-white" : "from-b-light to-white"
+              }`}
+            >
+              <span>{post.photo.emoji}</span>
+              <span className="px-4 text-center text-xs font-normal text-gray-400">
+                {post.photo.caption}
+              </span>
+            </div>
+          )}
+
+          {post.quote && qt && (
+            <div className="mt-3 rounded-xl border border-gray-200 p-3">
+              <div className="flex items-center gap-2 text-sm">
+                <Avatar
+                  initial={post.quote.color.toUpperCase()}
+                  className={`h-6 w-6 flex-shrink-0 text-xs ${qt.avatarBg}`}
+                />
+                <span className="font-bold">{post.quote.name}</span>
+                <span className="text-gray-500">{post.quote.handle}</span>
+                <span className="text-gray-400">·</span>
+                <span className="text-gray-500">{post.quote.date}</span>
+              </div>
+              <p className="mt-1.5 whitespace-pre-line text-sm text-gray-700">
+                {post.quote.text}
+              </p>
+            </div>
+          )}
+
+          <div className="mt-3 flex gap-6 text-sm text-gray-400">
+            <span className="inline-flex items-center gap-1.5">
+              🔁 {post.retweets}
+            </span>
+            <span className="inline-flex items-center gap-1.5">
+              ♡ {post.likes}
+            </span>
+          </div>
+        </div>
+      </div>
+    </article>
+  );
+}
+
+export function SocialFeed({
+  color,
+  initial,
+  name,
+  handle,
+  posts,
+}: {
+  color: "a" | "b";
+  initial: string;
+  name: string;
+  handle: string;
+  posts: Post[];
+}) {
+  const timeline = [...posts].reverse();
+
+  return (
+    <section className="border-y border-gray-200 bg-gray-50 py-14">
+      <div className="mx-auto max-w-2xl px-6">
+        <h2 className="mb-1 flex items-center gap-2.5 text-2xl font-extrabold">
+          <span className={`inline-block h-2.5 w-2.5 rounded-full ${theme[color].avatarBg}`} />
+          SNSでの発信
+        </h2>
+        <p className="mb-6 text-sm text-gray-500">
+          {name}（{handle}）の投稿（7/7〜9/1）
+        </p>
+
+        <div className="space-y-3">
+          {timeline.map((post) => (
+            <PostCard
+              key={post.id}
+              color={color}
+              initial={initial}
+              name={name}
+              handle={handle}
+              post={post}
+            />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

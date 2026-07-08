@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { Avatar } from "./Avatar";
 import type { Post } from "@/lib/posts";
 import type { CandidateColor } from "@/lib/theme";
@@ -43,7 +44,19 @@ function PostCard({
             {post.text}
           </p>
 
-          {post.photo && (
+          {post.photo && post.photo.src && (
+            <div className="relative mt-3 aspect-video overflow-hidden rounded-xl border border-gray-100">
+              <Image
+                src={post.photo.src}
+                alt={post.photo.caption}
+                fill
+                className="object-cover"
+                sizes="(max-width: 640px) 100vw, 576px"
+              />
+            </div>
+          )}
+
+          {post.photo && !post.photo.src && (
             <div
               className={`mt-3 flex aspect-video flex-col items-center justify-center gap-2 rounded-xl border border-gray-100 bg-gradient-to-br text-4xl ${t.photoBg}`}
             >

@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Avatar } from "./Avatar";
+import type { CandidateColor } from "@/lib/theme";
 
 const theme = {
   a: {
@@ -14,6 +15,12 @@ const theme = {
     text: "text-b",
     btn: "bg-b hover:bg-b-dark",
   },
+  c: {
+    border: "border-t-c",
+    avatarBg: "bg-c",
+    text: "text-c",
+    btn: "bg-c hover:bg-c-dark",
+  },
 } as const;
 
 export function CandidateCard({
@@ -24,7 +31,7 @@ export function CandidateCard({
   slogan,
   message,
 }: {
-  color: "a" | "b";
+  color: CandidateColor;
   href: string;
   initial: string;
   name: string;

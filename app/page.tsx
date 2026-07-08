@@ -36,7 +36,7 @@ export default function Home() {
           <h2 className="mb-8 text-center text-2xl font-extrabold">
             候補者紹介
           </h2>
-          <div className="grid gap-6 sm:grid-cols-2">
+          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             <CandidateCard
               color="a"
               href="/candidate-a"
@@ -52,6 +52,14 @@ export default function Home() {
               name="鈴木 りょう"
               slogan="「声なき声を、カタチにする。」"
               message="第2駐車場の新設で、朝の不安をゼロにします。"
+            />
+            <CandidateCard
+              color="c"
+              href="/candidate-c"
+              initial="C"
+              name="西園寺 隼人"
+              slogan="「その優しさ、本当に大学のためですか。」"
+              message="実力に応じた支援で、頑張った人が報われる大学に。"
             />
           </div>
         </div>

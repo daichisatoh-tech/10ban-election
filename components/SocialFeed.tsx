@@ -1,9 +1,11 @@
 import { Avatar } from "./Avatar";
 import type { Post } from "@/lib/posts";
+import type { CandidateColor } from "@/lib/theme";
 
 const theme = {
-  a: { avatarBg: "bg-a" },
-  b: { avatarBg: "bg-b" },
+  a: { avatarBg: "bg-a", photoBg: "from-a-light to-white" },
+  b: { avatarBg: "bg-b", photoBg: "from-b-light to-white" },
+  c: { avatarBg: "bg-c", photoBg: "from-c-light to-white" },
 } as const;
 
 function PostCard({
@@ -13,7 +15,7 @@ function PostCard({
   handle,
   post,
 }: {
-  color: "a" | "b";
+  color: CandidateColor;
   initial: string;
   name: string;
   handle: string;
@@ -43,9 +45,7 @@ function PostCard({
 
           {post.photo && (
             <div
-              className={`mt-3 flex aspect-video flex-col items-center justify-center gap-2 rounded-xl border border-gray-100 bg-gradient-to-br text-4xl ${
-                color === "a" ? "from-a-light to-white" : "from-b-light to-white"
-              }`}
+              className={`mt-3 flex aspect-video flex-col items-center justify-center gap-2 rounded-xl border border-gray-100 bg-gradient-to-br text-4xl ${t.photoBg}`}
             >
               <span>{post.photo.emoji}</span>
               <span className="px-4 text-center text-xs font-normal text-gray-400">
@@ -93,7 +93,7 @@ export function SocialFeed({
   handle,
   posts,
 }: {
-  color: "a" | "b";
+  color: CandidateColor;
   initial: string;
   name: string;
   handle: string;
@@ -109,7 +109,7 @@ export function SocialFeed({
           SNSでの発信
         </h2>
         <p className="mb-6 text-sm text-gray-500">
-          {name}（{handle}）の投稿（7/7〜9/1）
+          {name}（{handle}）の投稿（7/7〜8/25）
         </p>
 
         <div className="space-y-3">

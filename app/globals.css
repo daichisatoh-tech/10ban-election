@@ -10,6 +10,10 @@
   --color-b: #1e7a4c;
   --color-b-dark: #145534;
   --color-b-light: #e9f6ee;
+
+  --color-c: #dc2626;
+  --color-c-dark: #991b1b;
+  --color-c-light: #fee2e2;
 }
 
 html {

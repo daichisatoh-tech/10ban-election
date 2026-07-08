@@ -4,6 +4,7 @@ import { CandidateHeader } from "./CandidateHeader";
 import { Footer } from "./Footer";
 import { SocialFeed } from "./SocialFeed";
 import type { Post } from "@/lib/posts";
+import type { CandidateColor } from "@/lib/theme";
 
 export type Profile = { label: string; text: string };
 
@@ -30,6 +31,12 @@ const theme = {
     accent: "text-b",
     border: "border-b",
   },
+  c: {
+    heroBg: "bg-gradient-to-br from-c to-c-dark",
+    solid: "bg-c",
+    accent: "text-c",
+    border: "border-c",
+  },
 } as const;
 
 export function CandidatePage({
@@ -45,7 +52,7 @@ export function CandidatePage({
   handle,
   posts,
 }: {
-  color: "a" | "b";
+  color: CandidateColor;
   initial: string;
   name: string;
   kana: string;

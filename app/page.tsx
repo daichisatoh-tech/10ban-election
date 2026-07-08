@@ -73,7 +73,7 @@ export default function Home() {
           </p>
           <div className="rounded-xl bg-gray-50 p-3 shadow-lg shadow-gray-200/50">
             <iframe
-              src="https://docs.google.com/forms/d/e/PLACEHOLDER/viewform?embedded=true"
+              src="https://docs.google.com/forms/d/e/1FAIpQLScW35c7J1li5vwk15Qns9TPRGNhBVwfR_jEF4jt2s_JY9Nbig/viewform?embedded=true"
               className="h-[900px] w-full rounded-lg border-0 bg-white"
               title="投票フォーム"
             >

@@ -58,7 +58,7 @@ export default function Home() {
               href="/candidate-c"
               initial="C"
               name="西園寺 隼人"
-              slogan="「その優しさ、本当に大学のためですか。」"
+              slogan="「この大学の闇を、暴く」"
               message="実力に応じた支援で、頑張った人が報われる大学に。"
             />
           </div>

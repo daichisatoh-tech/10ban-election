@@ -13,7 +13,7 @@ export default function CandidateC() {
       initial="C"
       name="西園寺 隼人"
       kana="さいおんじ はやと"
-      slogan="「その優しさ、本当に大学のためですか。」"
+      slogan="「この大学の闇を、暴く」"
       mainPledge="頑張った人が報われる大学に。実力に応じた支援で、本気の学生を後押しします。"
       profile={[
         { label: "所属", text: "教育学部4年、心理コース所属。学校心理士を目指し勉強中" },

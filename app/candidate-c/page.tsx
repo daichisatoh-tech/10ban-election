@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CandidatePage } from "@/components/CandidatePage";
 import { candidateCHandle, candidateCPosts } from "@/lib/posts";
+import { candidateCNews } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "西園寺隼人候補 政策詳細",
@@ -69,6 +70,7 @@ export default function CandidateC() {
       ]}
       handle={candidateCHandle}
       posts={candidateCPosts}
+      news={candidateCNews}
     />
   );
 }

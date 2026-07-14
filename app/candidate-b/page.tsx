@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CandidatePage } from "@/components/CandidatePage";
 import { candidateBHandle, candidateBPosts } from "@/lib/posts";
+import { candidateBNews } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "鈴木りょう候補 政策詳細",
@@ -69,6 +70,7 @@ export default function CandidateB() {
       ]}
       handle={candidateBHandle}
       posts={candidateBPosts}
+      news={candidateBNews}
     />
   );
 }

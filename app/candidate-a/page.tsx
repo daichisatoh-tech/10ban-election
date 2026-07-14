@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { CandidatePage } from "@/components/CandidatePage";
 import { candidateAHandle, candidateAPosts } from "@/lib/posts";
+import { candidateANews } from "@/lib/news";
 
 export const metadata: Metadata = {
   title: "山田あおい候補 政策詳細",
@@ -70,6 +71,7 @@ export default function CandidateA() {
       ]}
       handle={candidateAHandle}
       posts={candidateAPosts}
+      news={candidateANews}
     />
   );
 }

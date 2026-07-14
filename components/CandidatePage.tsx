@@ -3,7 +3,9 @@ import { Avatar } from "./Avatar";
 import { CandidateHeader } from "./CandidateHeader";
 import { Footer } from "./Footer";
 import { SocialFeed } from "./SocialFeed";
+import { NewsList } from "./NewsList";
 import type { Post } from "@/lib/posts";
+import type { NewsArticle } from "@/lib/news";
 import type { CandidateColor } from "@/lib/theme";
 
 export type Profile = { label: string; text: string };
@@ -51,6 +53,7 @@ export function CandidatePage({
   qas,
   handle,
   posts,
+  news,
 }: {
   color: CandidateColor;
   initial: string;
@@ -63,6 +66,7 @@ export function CandidatePage({
   qas: QA[];
   handle: string;
   posts: Post[];
+  news: NewsArticle[];
 }) {
   const t = theme[color];
 
@@ -107,6 +111,8 @@ export function CandidatePage({
           </ul>
         </div>
       </section>
+
+      <NewsList color={color} articles={news} />
 
       <section className="border-y border-gray-200 bg-gray-50 py-14">
         <div className="mx-auto max-w-5xl px-6">

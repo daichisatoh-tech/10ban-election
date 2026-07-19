@@ -43,7 +43,7 @@ export default function Home() {
               initial="A"
               name="山田 あおい"
               slogan="「学食を、みんなの味方に。」"
-              message="全品50円値下げで、あなたの毎日を変えます。"
+              message="全品100円値下げで、あなたの毎日を変えます。"
             />
             <CandidateCard
               color="b"

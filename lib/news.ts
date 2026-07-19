@@ -142,6 +142,21 @@ export const newsArticles: NewsArticle[] = [
   },
 ];
 
-export const candidateANews = newsArticles.filter((a) => a.candidate === "a");
-export const candidateBNews = newsArticles.filter((a) => a.candidate === "b");
-export const candidateCNews = newsArticles.filter((a) => a.candidate === "c");
+function parseDate(date: string): number {
+  const [month, day] = date.split("/").map(Number);
+  return month * 100 + day;
+}
+
+function byDate(a: NewsArticle, b: NewsArticle): number {
+  return parseDate(a.date) - parseDate(b.date);
+}
+
+export const candidateANews = newsArticles
+  .filter((a) => a.candidate === "a")
+  .sort(byDate);
+export const candidateBNews = newsArticles
+  .filter((a) => a.candidate === "b")
+  .sort(byDate);
+export const candidateCNews = newsArticles
+  .filter((a) => a.candidate === "c")
+  .sort(byDate);

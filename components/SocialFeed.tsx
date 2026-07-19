@@ -122,7 +122,7 @@ export function SocialFeed({
           SNSでの発信
         </h2>
         <p className="mb-6 text-sm text-gray-500">
-          {name}（{handle}）の投稿（7/7〜8/25）
+          {name}（{handle}）の投稿（7/7〜9/1）
         </p>
 
         <div className="space-y-3">
